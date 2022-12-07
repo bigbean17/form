@@ -1,15 +1,12 @@
 
-
-import { Controller } from "@hotwired/stimulus"
+import { Controller } from '@hotwired/stimulus'
 
 export default class extends Controller {
+  areaHover () {
+    this.element.style.filter = 'brightness(100%)'
+  }
 
-    areaHover(){
-        this.element.style.filter = "brightness(100%)"
-    }
-
-
-    areaLeave(){
-        this.element.style.filter = "brightness(60%)"
-    }
+  areaLeave () {
+    this.element.style.filter = 'brightness(60%)'
+  }
 }
