@@ -1,72 +1,77 @@
 
 
-<div class="form-container glass-effect">
 
-    
-    <% if @drone.errors.any? %>
-    <ul>
-        <% @drone.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+
+
+<%=turbo_frame_tag "drone_frame", :class => "turbo-style", :data => {:controller => "form"} do%>
+
+    <div class="form-container glass-effect">
+
+        
+        <% if @drone.errors.any? %>
+        <ul>
+            <% @drone.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+        </ul>
         <% end %>
-    </ul>
-    <% end %>
 
 
-    <%= turbo_frame_tag "model-selections", target: "_top" do %>
-        <%= form_with model:@drone  do |f| %>
+        <%= turbo_frame_tag "model-selections", target: "_top" do %>
+            <%= form_with model:@drone  do |f| %>
 
 
-            <div class="form-group">
-                <%= f.label :SN , for: "SN"%>
-                <%= f.text_field :SN, :id => "SN",:class => "form-control", :data => { "form-target" => "SN"} %>
-            </div>
-
-
-            
-
-            <div class="form-group">
-                <%= f.label :brand, for: "brand" %>
-                <div class="input-group full-width-wrapper" >
-                    <%= f.select(
-                        :brand, 
-                        options_for_select([['DJI', 'DJI'], ['Flyability SA', "Flyability SA"], ['Delair','Delair'],['Microdrones GmBH','Microdrones GmBH'],['GoPro','GoPro'],['Hexo','Hexo'],['Parrot','Parrot'],['Swellpro Technology Co Ltd','Swellpro Technology Co Ltd'],['senseFly','senseFly'],['Micasense','Micasense'],['3D Robotics','3D Robotics'],['Skydio','Skydio'],['Boston Dynamics Inc','Boston Dynamics Inc'],['Sphere Group','Sphere Group'],['Yellowscan','Yellowscan']]), 
-                        {}, 
-                        :class => "custom-select full-width-wrapper form-control",
-                        :data => { :action => "change -> form#selectBrandServer"})
-                    %>
+                <div class="form-group">
+                    <%= f.label :SN , for: "SN"%>
+                    <%= f.text_field :SN, :id => "SN",:class => "form-control", :data => { "form-target" => "SN"} %>
                 </div>
-            </div>
 
 
-            
-            <div class="form-group">
-                <%= f.label :model, for: "model" %>
-                <div class="input-group full-width-wrapper" >
+                
+
+                <div class="form-group">
+                    <%= f.label :brand, for: "brand" %>
+                    <div class="input-group full-width-wrapper" >
                         <%= f.select(
-                            :model, 
-                            options_for_select([['D1', 'D1'], ['D2', "D2"]]), 
+                            :brand, 
+                            options_for_select([['DJI', 'DJI'], ['Flyability SA', "Flyability SA"], ['Delair','Delair'],['Microdrones GmBH','Microdrones GmBH'],['GoPro','GoPro'],['Hexo','Hexo'],['Parrot','Parrot'],['Swellpro Technology Co Ltd','Swellpro Technology Co Ltd'],['senseFly','senseFly'],['Micasense','Micasense'],['3D Robotics','3D Robotics'],['Skydio','Skydio'],['Boston Dynamics Inc','Boston Dynamics Inc'],['Sphere Group','Sphere Group'],['Yellowscan','Yellowscan']]), 
                             {}, 
                             :class => "custom-select full-width-wrapper form-control",
-                            :data => { "form-target" => "option"},
-                            ) 
+                            :data => { :action => "change -> form#selectBrandServer"})
                         %>
+                    </div>
                 </div>
-            </div>
-
-            <div class="form-group">
-                <%= f.label :creator_id, for: "creator" %>
-                <%= f.text_field :creator, :id => "creator",:class => "form-control", :value =>  current_user.id, :readonly => true%>
-            </div>
 
 
-            <div>
-                <%= f.button "Add drone" ,:action => "drones", :method => "post", :class => "btn btn-primary btn-md btn-block"%>
-            </div>
+                
+                <div class="form-group">
+                    <%= f.label :model, for: "model" %>
+                    <div class="input-group full-width-wrapper" >
+                            <%= f.select(
+                                :model, 
+                                options_for_select([['D1', 'D1'], ['D2', "D2"]]), 
+                                {}, 
+                                :class => "custom-select full-width-wrapper form-control",
+                                :data => { "form-target" => "option"},
+                                ) 
+                            %>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <%= f.label :creator_id, for: "creator" %>
+                    <%= f.text_field :creator, :id => "creator",:class => "form-control", :value =>  current_user.id, :readonly => true%>
+                </div>
 
 
-            <%=link_to "< home", main_index_path, :class => "link-class", :data => {"turbo-frame" => "_top"}%>
+                <div>
+                    <%= f.button "Add drone" ,:action => "drones", :method => "post", :class => "btn btn-primary btn-md btn-block"%>
+                </div>
+
+
+                <%=link_to "< home", main_index_path, :class => "link-class", :data => {"turbo-frame" => "_top"}%>
+            <%end%>
         <%end%>
-    <%end%>
-</div>
-
+    </div>
+<%end%>
 
