@@ -1,0 +1,28 @@
+@import './main_style.css.scss';
+
+.main-form-container{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+
+    .form-container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        min-height: 42vh;
+        min-width: 35vh;
+        font-size: $title-font-size;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        color: $main-text-color;
+
+
+        .full-width-wrapper{
+            width: 100%;
+        }
+
+    }
+}

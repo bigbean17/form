@@ -1,0 +1,44 @@
+
+
+$main-background-color: rgb(240, 94, 28);
+$main-text-color: white;
+$main-font-size: medium;
+$title-font-size:larger;
+$large-title-font-size: xx-large;
+$sub-title-font-size:large;
+
+
+.pilot-image, .drone-image, .desert-image{
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.pilot-image{
+    background-image:url('https://c0.wallpaperflare.com/preview/461/607/662/person-holding-black-drone-controller.jpg');
+}
+
+.drone-image{
+    background-image:url('https://images.unsplash.com/photo-1527977966376-1c8408f9f108?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8ZHJvbmV8ZW58MHx8MHx8&w=1000&q=80');
+}
+
+.desert-image{
+    background-image: url('https://images4.alphacoders.com/714/714539.jpg');
+}
+
+.glass-effect{
+    background: rgba(252, 220, 203, 0.7);
+    -webkit-backdrop-filter: blur(1px);
+    backdrop-filter: blur(1px);
+    border-radius: 12px;
+}
+
+.link-class{
+    color: $main-text-color;
+}
+
+.turbo-style{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,57 @@
+
+
+
+
+<div class="items-index-container">
+
+    <div class="items-container">
+        <div class="item-container border-wrapper">
+            <div class="single-field-md">
+                Firstname: 
+            </div>
+
+            <div class="single-field-md">
+                Lastname:
+            </div>
+
+            <div class="single-field-md">
+
+            </div>
+        </div>
+        <% @pilots.each do |p|%>
+            
+
+            <div class="glass-effect item-container ">
+                <div class="single-field-md">
+                    <%=p.firstname%>
+                </div>
+
+                <div class="single-field-md">
+                    <%=p.lastname%>
+                </div>
+
+
+                <div class="single-field-md">
+                        <%= button_to "Delete", pilot_path(p),
+                            method: :delete,
+                            :class => "btn btn-danger"
+                        %>
+                </div>
+
+                
+            </div>
+        <%end%>
+
+
+
+
+        <div class="single-field-md">
+            <%=button_to "Add New", new_pilot_path, :class => "btn btn-primary", :method => "get"%>
+        </div>
+
+        <div class="single-field-md">
+            <%=link_to "< home", root_path, :class => "link-class"%>
+        </div>
+    </div>
+
+</div>

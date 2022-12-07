@@ -1,0 +1,40 @@
+<!-- app/views/applicants/new.html.erb -->
+
+
+<div class="auth-container" data-controller="register">
+
+  <h1>Register</h1>
+
+  <% if @user.errors.any? %>
+  <ul>
+    <% @user.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+  <% end %>
+
+  <%= form_with url:signup_post_path do |f| %>
+    <div class="form-group">
+      <%= f.label :username, for: 'register-username' %>
+      <%= f.text_field :username, :id => 'register-username', :class => "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :password, for: 'register-username' %>
+      <%= f.password_field :password, :id => 'register-password', :class => "form-control", data: {target: "register.password"} %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :password_confirmation, for: 'register-c-password' %>
+      <%= f.password_field :password_confirmation, :id => 'register-c-password', :class => "form-control", data: {target: "register.cPassword"} %>
+    </div>
+
+    <div class="auth-item-container">
+      <%= f.button "Register", :class => "btn btn-primary btn-lg btn-block", :data => {:action => "click -> registerpasswordComapre"}%> 
+    </div>
+
+    <%= link_to "Login", signin_path %>
+    
+  <% end %>
+
+</div>

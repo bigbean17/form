@@ -1,0 +1,67 @@
+
+
+
+<%= turbo_frame_tag "drone_frame", :class=>"turbo-style" ,:data => {:controller => "form"}  do%>
+    <div class="items-index-container">
+        <div class="items-container">
+            <div class="item-container border-wrapper">
+                <div class="single-field-md">
+                    Serial Number:
+                </div>
+
+                <div class="single-field-md">
+                    Brand:
+                </div>
+
+                <div class="single-field-md">
+                    Model:
+                </div>
+
+                <div class="single-field-md">
+
+                </div>
+            </div>
+            <% @my_drones.each do |d|%>
+                
+                
+                <%= link_to drone_path(d), :class => "glass-effect item-container", :method => "get" do%>
+
+                    <div class="single-field-md">
+                        <%=d.SN%>
+                    </div>
+
+                    <div class="single-field-md">
+                        <%=d.brand%>
+                    </div>
+
+                    <div class="single-field-md">
+                        <%=d.model%>
+                    </div>
+
+
+                    <div class="single-field-md btn-h-z-index">
+                            <%= button_to "Delete", drone_path(d),
+                                method: :delete,
+                                :class => "btn btn-danger",
+                                :data => { :action => "click -> form#stopParentEvent"}
+                                
+                            %>
+                    </div>
+
+                        
+                <%end%>
+            <%end%>
+
+
+
+
+            <div class="single-field-md">
+                <%=button_to "Add New", new_drone_path, :class => "btn btn-primary", :method => "get", :data => {"turbo-frame" => "_top"}%>
+            </div>
+
+            <div class="single-field-md">
+                <%=link_to "< home", root_path, :class => "link-class", :data => {"turbo-frame" => "_top"}%>
+            </div>
+        </div>
+    </div>
+<%end%>

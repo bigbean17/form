@@ -1,0 +1,28 @@
+
+
+
+
+<div class="home-page-section-row">
+    <div class="home-page-section-container pilot-image" data-controller="mainPage" data-action="mouseover->mainPage#areaHover mouseout->mainPage#areaLeave">
+        <%=button_to "Create Pilots", new_pilot_path,  method: :get, :class => "btn btn-primary btn-lg" %>
+    </div>
+
+
+    <div class="home-page-section-container drone-image" data-controller="mainPage" data-action="mouseover->mainPage#areaHover mouseout->mainPage#areaLeave">
+        <%=button_to "Create Drones", drones_get_path,  method: :get, :class => "btn btn-primary btn-lg" %>
+    </div>
+</div>
+
+
+<div class="home-page-section-row">
+    <div class="home-page-section-container pilot-image" data-controller="mainPage" data-action="mouseover->mainPage#areaHover mouseout->mainPage#areaLeave">
+        <%=button_to "My Pilots", pilots_path,  method: :get, :class => "btn btn-primary btn-lg" %>
+    </div>
+
+
+    <div class="home-page-section-container drone-image" data-controller="mainPage" data-action="mouseover->mainPage#areaHover mouseout->mainPage#areaLeave">
+        <%=button_to "My Drones", my_drones_path,  method: :get, :class => "btn btn-primary btn-lg" %>
+    </div>
+</div>
+
+

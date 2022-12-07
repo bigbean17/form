@@ -1,0 +1,83 @@
+
+
+<%=turbo_frame_tag "drone_frame", :class=>"turbo-style", :loading => "lazy" do%>
+    <div class="items-index-container">
+        <div class="items-container">
+
+            <div class="item-container border-wrapper">
+                <div class="single-field-md">
+                    Brand
+                </div>
+                
+
+                <div class="single-field-md">
+                    Model
+                </div>
+
+                <div class="single-field-md">
+                    Family
+                </div>
+
+                <div class="single-field-md">
+                    Weight
+                </div>
+
+                <div class="single-field-md">
+                    Min weight
+                </div>
+                
+
+                <div class="single-field-md">
+                    max weight
+                </div>
+                
+
+                <div class="single-field-md">
+                    Product line
+                </div>
+
+            </div>
+
+            <div class="glass-effect item-container" data-method="get" href="/drones/35">
+
+                <div class="single-field-md">
+                    <%= @drone.brand %>
+                </div>
+
+                <div class="single-field-md">
+                    <%= @drone.mname%>
+                </div>
+
+                <div class="single-field-md">
+                    <%= @drone.family%>
+                </div>
+                        
+                <div class="single-field-md">
+                    <%= @drone.weight%>
+                </div>
+
+                <div class="single-field-md">
+                    <%= @drone.min_weight%>
+                </div>
+
+
+                <div class="single-field-md">
+                    <%= @drone.max_weight%>
+                </div>
+
+
+                <div class="single-field-md">
+                    <%= @drone.line%>
+                </div>
+
+                
+            </div>
+
+            <%=link_to "< My drones ", my_drones_path, :class => "link-class"%>
+
+
+
+        </div>
+    </div>
+
+<%end%>

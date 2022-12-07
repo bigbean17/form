@@ -1,0 +1,25 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  mname: MyString
+  mid: MyString
+  mnumber: MyString
+  brand: MyString
+  record: MyString
+  family: MyString
+  line: MyString
+  weight: 9.99
+  min_weight: 9.99
+  max_weight: 9.99
+
+two:
+  mname: MyString
+  mid: MyString
+  mnumber: MyString
+  brand: MyString
+  record: MyString
+  family: MyString
+  line: MyString
+  weight: 9.99
+  min_weight: 9.99
+  max_weight: 9.99

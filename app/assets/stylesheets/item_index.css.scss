@@ -1,0 +1,63 @@
+@import './main_style.css.scss';
+
+.items-index-container{
+
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+
+    .search-bar{
+        display: flex;
+    }
+
+    .items-container{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        width: 70%;
+        color: white;
+        font-size: $title-font-size;
+        font-weight: 500;
+
+
+        
+
+        .border-wrapper{
+            border-bottom: 2px solid black;
+        }
+
+        .item-container{
+            display: flex;
+            width: 100%;
+            border-radius: 5px;
+            margin-bottom: 0.5rem;
+
+            .single-field-sm,
+            .single-field-md,
+            .single-field-lg{
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+
+            }
+            
+            .single-field-sm{
+                flex: 1
+            }
+
+            .single-field-md{
+                flex: 3
+            }
+
+            .single-field-lg{
+                flex: 7
+            }
+        }
+    }
+
+    .item-container:hover{
+        cursor: pointer;
+    }
+}

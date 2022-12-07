@@ -1,0 +1,57 @@
+
+<%= turbo_frame_tag "model-selections", :class=>"turbo-style",  target: "_top" do %>
+    <%= form_with model:@drone  do |f| %>
+
+
+        <div class="form-group">
+            <%= f.label :SN , for: "SN"%>
+            <%= f.text_field :SN, :id => "SN",:class => "form-control", :data => { "form-target" => "SN"}, :value => @SN %>
+        </div>
+
+
+        
+
+        <div class="form-group">
+            <%= f.label :brand, for: "brand" %>
+            <div class="input-group full-width-wrapper" >
+                <%= turbo_frame_tag "model_frame" do%>
+                    <%= f.select(
+                        :brand, 
+                        options_for_select([['DJI', 'DJI'], ['Flyability SA', "Flyability SA"], ['Delair','Delair'],['Microdrones GmBH','Microdrones GmBH'],['GoPro','GoPro'],['Hexo','Hexo'],['Parrot','Parrot'],['Swellpro Technology Co Ltd','Swellpro Technology Co Ltd'],['senseFly','senseFly'],['Micasense','Micasense'],['3D Robotics','3D Robotics'],['Skydio','Skydio'],['Boston Dynamics Inc','Boston Dynamics Inc'],['Sphere Group','Sphere Group'],['Yellowscan','Yellowscan']], @brand), 
+                        {}, 
+                        :class => "custom-select full-width-wrapper form-control",
+                        :data => { :action => "change -> form#selectBrandServer"})
+                    %>
+                <%end%>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <%= f.label :model, for: "model" %>
+            <div class="input-group full-width-wrapper" >
+                    <%= f.select(
+                        :model, 
+                        options_for_select(@model), 
+                        {}, 
+                        :class => "custom-select full-width-wrapper form-control",
+                        :data => { "form-target" => "option"},
+                        ) 
+                    %>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <%= f.label :creator_id, for: "creator" %>
+            <%= f.text_field :creator, :id => "creator",:class => "form-control", :value =>  current_user.id, :readonly => true%>
+        </div>
+
+
+        <div>
+            <%= f.button "Add drone" , :class => "btn btn-primary btn-md btn-block"%>
+        </div>
+
+
+        <%=link_to "< home", main_index_path, :class => "link-class"%>
+    <%end%>
+<%end%>
